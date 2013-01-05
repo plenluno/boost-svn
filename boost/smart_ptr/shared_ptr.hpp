@@ -880,15 +880,23 @@ namespace detail
 
 template<class D, class T> D * basic_get_deleter(shared_ptr<T> const & p)
 {
+#ifdef LIBJ_DISABLE_BOOST_SP_GET_DELETER
+    return 0;
+#else    
     void const * q = p._internal_get_deleter(BOOST_SP_TYPEID(D));
     return const_cast<D *>(static_cast<D const *>(q));
+#endif
 }
 
 #else
 
 template<class D, class T> D * basic_get_deleter( shared_ptr<T> const & p ) BOOST_NOEXCEPT
 {
+#ifdef LIBJ_DISABLE_BOOST_SP_GET_DELETER
+    return 0;
+#else  
     return static_cast<D *>( p._internal_get_deleter(BOOST_SP_TYPEID(D)) );
+#endif
 }
 
 #endif
