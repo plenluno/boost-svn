@@ -158,7 +158,7 @@ class base_atomic<void *, void *, 8, Sign> {
     typedef ptrdiff_t difference_type;
 public:
     explicit base_atomic(value_type v) : v_(v) {}
-    base_atomic(void) {}
+    base_atomic(void) : v_(0) {}
 
     void
     store(value_type v, memory_order order = memory_order_seq_cst) volatile
@@ -253,7 +253,7 @@ class base_atomic<T *, void *, 8, Sign> {
     typedef ptrdiff_t difference_type;
 public:
     explicit base_atomic(value_type v) : v_(v) {}
-    base_atomic(void) {}
+    base_atomic(void) : v_(0) {}
 
     void
     store(value_type v, memory_order order = memory_order_seq_cst) volatile
@@ -353,7 +353,7 @@ public:
     {
         memcpy(&v_, &v, sizeof(value_type));
     }
-    base_atomic(void) {}
+    base_atomic(void) : v_(0) {}
 
     void
     store(value_type const& value, memory_order order = memory_order_seq_cst) volatile

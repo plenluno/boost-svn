@@ -31,7 +31,7 @@ class base_atomic<T, int, 1, Sign> {
     typedef uint32_t storage_type;
 public:
     explicit base_atomic(value_type v) : v_(v) {}
-    base_atomic(void) {}
+    base_atomic(void) : v_(0) {}
 
     void
     store(value_type v, memory_order order = memory_order_seq_cst) volatile
@@ -166,7 +166,7 @@ class base_atomic<T, int, 2, Sign> {
     typedef uint32_t storage_type;
 public:
     explicit base_atomic(value_type v) : v_(v) {}
-    base_atomic(void) {}
+    base_atomic(void) : v_(0) {}
 
     void
     store(value_type v, memory_order order = memory_order_seq_cst) volatile
@@ -432,7 +432,7 @@ class base_atomic<void *, void *, 4, Sign> {
     typedef ptrdiff_t difference_type;
 public:
     explicit base_atomic(value_type v) : v_(v) {}
-    base_atomic(void) {}
+    base_atomic(void) : v_(0) {}
 
     void
     store(value_type v, memory_order order = memory_order_seq_cst) volatile
@@ -517,7 +517,7 @@ class base_atomic<T *, void *, 4, Sign> {
     typedef ptrdiff_t difference_type;
 public:
     explicit base_atomic(value_type v) : v_(v) {}
-    base_atomic(void) {}
+    base_atomic(void) : v_(0) {}
 
     void
     store(value_type v, memory_order order = memory_order_seq_cst) volatile
@@ -625,7 +625,7 @@ public:
     {
         memcpy(&v_, &v, sizeof(value_type));
     }
-    base_atomic(void) {}
+    base_atomic(void) : v_(0) {}
 
     void
     store(value_type const& v, memory_order order = memory_order_seq_cst) volatile
@@ -723,7 +723,7 @@ public:
     {
         memcpy(&v_, &v, sizeof(value_type));
     }
-    base_atomic(void) {}
+    base_atomic(void) : v_(0) {}
 
     void
     store(value_type const& v, memory_order order = memory_order_seq_cst) volatile
@@ -821,7 +821,7 @@ public:
     {
         memcpy(&v_, &v, sizeof(value_type));
     }
-    base_atomic(void) {}
+    base_atomic(void) : v_(0) {}
 
     void
     store(value_type const& v, memory_order order = memory_order_seq_cst) volatile
