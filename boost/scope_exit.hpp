@@ -724,6 +724,10 @@ private:
     > BOOST_SCOPE_EXIT_AUX_ARGS; \
     BOOST_SCOPE_EXIT_AUX_ARGS.value = &BOOST_SCOPE_EXIT_AUX_PARAMS(id); \
     struct BOOST_SCOPE_EXIT_AUX_GUARD_T(id) { \
+      private: \
+        BOOST_SCOPE_EXIT_AUX_GUARD_T(id)(const BOOST_SCOPE_EXIT_AUX_GUARD_T(id)&); \
+        void operator=(const BOOST_SCOPE_EXIT_AUX_GUARD_T(id)&); \
+      public: \
         BOOST_SCOPE_EXIT_DETAIL_PARAMS_T(id)* boost_se_params_; \
         BOOST_SCOPE_EXIT_AUX_GUARD_T(id) (void* boost_se_params) \
             : boost_se_params_( \
