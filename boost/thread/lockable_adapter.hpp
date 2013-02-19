@@ -23,6 +23,7 @@ namespace boost
   {
   public:
     typedef BasicLockable mutex_type;
+    virtual ~basic_lockable_adapter() {}
 
   protected:
     mutex_type& lockable() const
