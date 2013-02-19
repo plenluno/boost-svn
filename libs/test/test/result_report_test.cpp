@@ -7,7 +7,7 @@
 //
 //  File        : $RCSfile$
 //
-//  Version     : $Revision$
+//  Version     : $Revision: 57993 $
 //
 //  Description : tests Unit Test Framework reporting facilities against
 //  pattern file
